@@ -2,3 +2,67 @@
 #task-5 {
   /* Styles goes here */
 }
+.login-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 8px;
+  &__form {
+    flex-basis: 50%;
+    height: 100%;
+    padding: 40px 0px 40px 40px;
+    margin: 10px;
+    border-right: 1px solid gray;
+  }
+  &__result {
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    > div {
+      margin: 0px 0px 8px 0px;
+    }
+  }
+
+  &__input-container {
+    margin-bottom: 20px;
+  }
+  &__input {
+    border: 1px solid gray;
+    border-radius: 4px;
+    height: 26px;
+    width: 80%;
+    &:focus {
+      outline: none !important;
+      border: 1px solid orange;
+    }
+  }
+
+  &__label {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  &__input-container:focus-within &__label {
+    color: rgb(255, 123, 0);
+  }
+
+  &__login-btn {
+    outline: none !important;
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    border-radius: 4px;
+    width: 100px;
+    height: 28px;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+}

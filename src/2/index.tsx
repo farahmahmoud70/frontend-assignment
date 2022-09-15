@@ -1,15 +1,27 @@
+import React from "react";
 import { FunctionComponent, useState } from "react";
+import Inputs from "../components/common/input/Input";
 
 const Task2: FunctionComponent = () => {
   const [value, setValue] = useState("");
 
+  const onInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setValue(event.currentTarget.value);
+  };
+
   return (
     <div>
-      <label>Controlled Input: </label>
-      <input />
+      <form>
+        <Inputs
+          label="Controlled Input: "
+          inputId="controlled-input"
+          onInputChange={onInputChange}
+          value={value}
+        />
+      </form>
       <br />
       <br />
-      <p>#Show Input value here#</p>
+      <p>{value}</p>
     </div>
   );
 };

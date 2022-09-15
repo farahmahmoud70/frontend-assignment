@@ -1,34 +1,59 @@
 // Style
 import { FunctionComponent, useState } from "react";
+import Inputs from "../components/common/input/Input";
 import "./index.scss";
+
+// Please Note that in this component I'm not simulating anything and not validating the input it's a happy scenario with it's UI
 
 const Task5: FunctionComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  const onSubmit = () => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     // If you want to do something with form submit
-
-    alert(`Email: ${email} \nPassword: ${password}`);
+    e.preventDefault();
+    setSubmitted(true);
   };
 
   return (
-    <div id="task-5">
-      <form onSubmit={onSubmit}>
-        <label>Email</label>
-        <input
-          name="email"
-          onChange={(event) => setEmail(event.currentTarget.value)}
-          value={email}
-        />
-        <label>Password</label>
-        <input
-          name="password"
-          onChange={(event) => setPassword(event.currentTarget.value)}
-          value={password}
-        />
-        <button>Login</button>
-      </form>
+    <div id="task-5" className="login-container">
+      <div className="form-container">
+        <form onSubmit={onSubmit}>
+          <Inputs
+            label="Email"
+            inputId="email-input"
+            onInputChange={(event) => setEmail(event.currentTarget.value)}
+            value={email}
+            isVertical={true}
+            inputContainerClassName={"input-container"}
+            inputClassName={"input"}
+            inputLabelClassName={"label"}
+          />
+
+          <Inputs
+            label="Password"
+            inputId="password-input"
+            onInputChange={(event) => setPassword(event.currentTarget.value)}
+            value={password}
+            isVertical={true}
+            inputContainerClassName={"input-container"}
+            inputClassName={"input"}
+            inputLabelClassName={"label"}
+          />
+          <button className={"login-btn"}>Login</button>
+        </form>
+      </div>
+      <div className="result">
+        {submitted ? (
+          <>
+            <div>{"You have entered Email and Password"}</div>
+            <div>{email}</div>
+          </>
+        ) : (
+          <div>{"You haven't submitted anything yet"}</div>
+        )}
+      </div>
     </div>
   );
 };
