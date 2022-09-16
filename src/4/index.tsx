@@ -18,7 +18,7 @@ const Task5: FunctionComponent = () => {
 
   return (
     <div id="task-5" className="login-container">
-      <div className="form-container">
+      <div className="login-container__form">
         <form onSubmit={onSubmit}>
           <Inputs
             label="Email"
@@ -26,9 +26,9 @@ const Task5: FunctionComponent = () => {
             onInputChange={(event) => setEmail(event.currentTarget.value)}
             value={email}
             isVertical={true}
-            inputContainerClassName={"input-container"}
-            inputClassName={"input"}
-            inputLabelClassName={"label"}
+            inputContainerClassName={"login-container__input-container"}
+            inputClassName={"login-container__input"}
+            inputLabelClassName={"login-container__label"}
           />
 
           <Inputs
@@ -37,14 +37,14 @@ const Task5: FunctionComponent = () => {
             onInputChange={(event) => setPassword(event.currentTarget.value)}
             value={password}
             isVertical={true}
-            inputContainerClassName={"input-container"}
-            inputClassName={"input"}
-            inputLabelClassName={"label"}
+            inputContainerClassName={"login-container__input-container"}
+            inputClassName={"login-container__input"}
+            inputLabelClassName={"login-container__label"}
           />
-          <button className={"login-btn"}>Login</button>
+          <button className={"login-container__login-btn"}>Login</button>
         </form>
       </div>
-      <div className="result">
+      <div className="login-container__result">
         {submitted ? (
           <>
             <div>{"You have entered Email and Password"}</div>
