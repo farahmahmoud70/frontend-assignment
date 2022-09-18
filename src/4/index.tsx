@@ -1,6 +1,6 @@
 // Style
 import { FunctionComponent, useState } from "react";
-import Inputs from "../components/common/input/Input";
+import Input from "../components/common/input/Input";
 import "./index.scss";
 
 // Please Note that in this component I'm not simulating anything and not validating the input it's a happy scenario with it's UI
@@ -20,7 +20,7 @@ const Task5: FunctionComponent = () => {
     <div id="task-5" className="login-container">
       <div className="login-container__form">
         <form onSubmit={onSubmit}>
-          <Inputs
+          <Input
             label="Email"
             inputId="email-input"
             onInputChange={(event) => setEmail(event.currentTarget.value)}
@@ -31,7 +31,7 @@ const Task5: FunctionComponent = () => {
             inputLabelClassName={"login-container__label"}
           />
 
-          <Inputs
+          <Input
             label="Password"
             inputId="password-input"
             onInputChange={(event) => setPassword(event.currentTarget.value)}

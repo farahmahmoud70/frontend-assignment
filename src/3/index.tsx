@@ -1,8 +1,9 @@
 import { FunctionComponent, useState } from "react";
-import Inputs from "../components/common/input/Input";
+import Input from "../components/common/input/Input";
 import { useDebounce } from "../handlers/useDebounce";
 import { useEffect } from "react";
 import List from "../components/common/list/List";
+import ListItem from "../components/common/listItem/ListItem";
 
 const Task3: FunctionComponent = () => {
   const [inputValue, setInputValue] = useState("");
@@ -45,7 +46,7 @@ const Task3: FunctionComponent = () => {
   return (
     <div>
       <form>
-        <Inputs
+        <Input
           label="Search Input: "
           inputId="search-controlled-input"
           onInputChange={onInputChange}
@@ -59,7 +60,12 @@ const Task3: FunctionComponent = () => {
         <>
           {searchRes.length ? "Search Result" : "Data"}
           <br />
-          <List items={searchRes.length ? searchRes : items} id={"task-3-list"}/>
+          <List
+            items={(searchRes.length ? searchRes : items).map((item, index) => (
+              <ListItem id={`list-item-${index}`} item={item} />
+            ))}
+            id={"task-3-list"}
+          />
         </>
       )}
     </div>

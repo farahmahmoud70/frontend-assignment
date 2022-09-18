@@ -1,6 +1,7 @@
 /*
   You don't need to change anything in here.
 */
+@import "~antd/dist/antd.css";
 
 html,
 body {
@@ -67,4 +68,12 @@ nav.menu {
       background-color: #86b111;
     }
   }
+}
+
+// I have added this here because it's a generic style and it's not related to specific component
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }

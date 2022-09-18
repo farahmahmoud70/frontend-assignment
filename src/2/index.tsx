@@ -1,6 +1,6 @@
 import React from "react";
 import { FunctionComponent, useState } from "react";
-import Inputs from "../components/common/input/Input";
+import Input from "../components/common/input/Input";
 
 const Task2: FunctionComponent = () => {
   const [value, setValue] = useState("");
@@ -12,7 +12,7 @@ const Task2: FunctionComponent = () => {
   return (
     <div>
       <form>
-        <Inputs
+        <Input
           label="Controlled Input: "
           inputId="controlled-input"
           onInputChange={onInputChange}
